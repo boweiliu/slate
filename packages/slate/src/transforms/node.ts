@@ -928,6 +928,8 @@ export const NodeTransforms: NodeTransforms = {
     Editor.withoutNormalizing(editor, () => {
       const { mode = 'lowest', split = false, voids = false } = options
       let { match, at = editor.selection } = options
+      console.log(editor.selection);
+      console.log(at);
 
       if (!at) {
         return
@@ -945,6 +947,7 @@ export const NodeTransforms: NodeTransforms = {
 
       if (split && Range.isRange(at)) {
         const [start, end] = Range.edges(at)
+        // NOTE[bowei]: hmmm
         const rangeRef = Editor.rangeRef(editor, at, {
           affinity: 'inward',
         })
@@ -952,6 +955,7 @@ export const NodeTransforms: NodeTransforms = {
         Transforms.splitNodes(editor, { at: start, match, voids })
         at = rangeRef.unref()!
 
+        // AHHH
         if (options.at == null) {
           Transforms.select(editor, at)
         }

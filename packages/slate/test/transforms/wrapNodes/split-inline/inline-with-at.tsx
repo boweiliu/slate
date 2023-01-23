@@ -14,7 +14,7 @@ export const input = (
   </editor>
 )
 export const run = editor => {
-  Transforms.wrapNodes(editor, <inline new />, { split: true })
+  Transforms.wrapNodes(editor, <inline new />, { split: true, at: editor.selection })
 }
 // note the order of focus and /inline
 export const output = (
@@ -24,8 +24,8 @@ export const output = (
       <inline new>
         <anchor />
         two
-        <focus />
       </inline>
+      <focus />
       three
     </block>
   </editor>
