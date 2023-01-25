@@ -8,6 +8,10 @@ export type RangeDirection = TextDirection | 'outward' | 'inward'
 
 export type RangeMode = 'highest' | 'lowest'
 
+/**
+ * start - whichever of anchor and focus is earlier in the document
+ * end - whichever of anchor and focus is later in the document
+ */
 export type SelectionEdge = 'anchor' | 'focus' | 'start' | 'end'
 
 export type SelectionMode = 'all' | 'highest' | 'lowest'
